@@ -3,5 +3,9 @@
     "mongoose": "^8.5.4",
     "node": "^22.7.0",
     "remixicon": "^4.3.0"
+  },
+  "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
+    "react-refresh": "^0.14.2"
   }
 }

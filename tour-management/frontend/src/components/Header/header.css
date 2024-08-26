@@ -27,8 +27,38 @@
     color: inherit;
 }
 
-.nav_item a.active__link{
+.nav__item a.active__link{
     color: var(--secondary-color);
+}
+
+.nav__right {
+    margin-left: auto; /* This will push the buttons to the right */
+}
+
+.nav__btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav__btns a {
+    text-decoration: none;
+}
+
+.nav__right {
+    display: flex;
+    align-items: center;
+}
+
+
+
+@media (max-width: 768px) {
+    .mobile__menu {
+        display: block;
+    }
+
+    .navigation {
+        display: none;
+    }
 }
 
 .mobile__menu{
@@ -48,3 +78,4 @@
     box-shadow: 3px 3px 8px -3px #ddd;
     z-index: 999;
 }
+

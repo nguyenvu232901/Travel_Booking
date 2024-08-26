@@ -6,9 +6,14 @@ import heroImg02 from '../assets/images/hero-img02.jpg';
 import heroVideo from '../assets/images/hero-video.mp4';
 import Subtitle from './../shared/Subtitle';
 import worldImg from '../assets/images/world.png';
+import experienceImg from '../assets/images/experience.png'
+
 import SearchBar from '../shared/SearchBar';
 import ServiceList from '../services/ServiceList';
 import FeaturedTourList from '../components/Featured-tours/FeaturedTourList';
+import MasonryImagesGallery from '../components/Image-gallery/MasonryImagesGallery';
+import Testimonials from '../components/Testimonial/Testimonials';
+import Newsletter from '../shared/Newsletter';
 
 const Home = () => {
     return <>
@@ -87,6 +92,94 @@ const Home = () => {
         </section>
         {/* =================== featured tour section start ==================== */}
 
+
+        {/* ================= experience section start =================== */}
+        <section>
+            <Container>
+                <Row>
+                    <Col lg='6'>
+                        <div className="experience__content">
+                            <Subtitle subtitle={'Experience'} />
+
+                            <h2>
+                                With out all experience <br /> We will serve uoy
+                            </h2>
+                            <p>
+                                Lorem ipsum dolar sit amet, consectetur adipisicing elit.
+                                <br />
+                                Quas aliquam, hic tempora inventore suscipit unde.
+                            </p>
+                        </div>
+                        <div className="counter__wrapper d-flex align-items-center gap-5">
+                            <div className="counter__box">
+                                <span>12k+</span>
+                                <h6>Successful Trip</h6>
+                            </div>
+
+                            <div className="counter__box">
+                                <span>2k+</span>
+                                <h6>Regular clients</h6>
+                            </div>
+
+                            <div className="counter__box">
+                                <span>15</span>
+                                <h6>Year experience</h6>
+                            </div>
+                        </div>
+                    </Col>
+
+                    <Col lg='6'>
+                        <div className="experience__img">
+                            <img src={experienceImg} alt="" />
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </section>
+        {/* ================= experience section end =================== */}
+
+
+        {/* ================= gallery section end =================== */}
+        <section>
+            <Container>
+                <Row>
+                    <Col lg='12'>
+                        <Subtitle subtitle={"Gallery"} />
+                        <h2 className="gallery__title">
+                            Visit our customers tour gallery
+                        </h2>
+                    </Col>
+
+                    <Col lg='12'>
+                        <MasonryImagesGallery>
+
+                        </MasonryImagesGallery>
+                    </Col>
+                </Row>
+            </Container>
+        </section>
+        {/* ================= gallery section end =================== */}
+
+
+        {/* ================= testimonial section end =================== */}
+        <section>
+            <Container>
+                <Row>
+                    <Col lg='12'>
+                        <Subtitle subtitle={"Fans Love"} />
+                        <h2 className="testimonial__title">What our fans say about us</h2>
+                    </Col>
+
+                    <Col lg='12'>
+                        <Testimonials />
+                    </Col>
+                </Row>
+            </Container>
+        </section>
+        {/* ================= testimonial section end =================== */}
+
+        <Newsletter />
+        
     </>
 
 }
