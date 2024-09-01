@@ -22,7 +22,7 @@ export const register = async(req,res)=>{
         res.status(200).json({
             success: true,
             message: "Successfully created"
-        })
+        });
 
     }catch(err){
         console.error(err);
@@ -71,7 +71,7 @@ export const login = async(req,res)=>{
         .status(200).json({
             token,
             data: { ...rest },
-            role
+            role,
         });
     }catch(err){
         console.error(err);

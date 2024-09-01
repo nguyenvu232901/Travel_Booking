@@ -39,6 +39,10 @@
     margin-bottom: 2.5rem;
 }
 
+.tour__extra-details span{
+    min-width: 84px;
+}
+
 .tour__info h5{
     margin-bottom: 1rem;
     font-size: 1.3rem;
@@ -123,4 +127,19 @@
 
 .review__item span{
     font-weight: 500;
+}
+
+@media only screen and (max-width:768px){
+    .tour__extra-details{
+        flex-wrap: wrap;
+        row-gap: 1rem;
+    }
+
+    .tour__extra-details span{
+        font-size: 0.9rem;
+    }
+
+    .tour__extra-details span i{
+        font-size: 1rem;
+    }
 }

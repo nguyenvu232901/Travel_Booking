@@ -28,7 +28,8 @@ export const getBooking = async(req,res)=>{
         res.status(200).json({
             success:true, 
             message:"successful", 
-            data:book});
+            data:book
+        });
     } catch (err) {
         res.status(404).json({
             success:false, 
@@ -45,11 +46,12 @@ export const getAllBooking = async(req,res)=>{
         res.status(200).json({
             success:true, 
             message:"successful", 
-            data:books});
+            data:books
+        });
     } catch (err) {
         res.status(500).json({
             success:false, 
             message:"internal server error", 
-            });
+        });
     }
 };

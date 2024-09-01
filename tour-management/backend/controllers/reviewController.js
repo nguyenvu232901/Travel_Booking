@@ -23,7 +23,7 @@ export const createReview = async(req,res)=>{
         console.error(err);
         res.status(500).json({
             success:false, 
-            message:"review submitted", 
+            message:"Failed to submit", 
         });
     }
 };

@@ -47,7 +47,7 @@ const Home = () => {
                     </Col>
 
                     <Col lg='2'>
-                        <div className="hero__img-box mt-4">
+                        <div className="hero__img-box hero__video-box mt-4">
                             <video src={heroVideo} alt="" controls />
                         </div>
                     </Col>
@@ -102,7 +102,7 @@ const Home = () => {
                             <Subtitle subtitle={'Experience'} />
 
                             <h2>
-                                With out all experience <br /> We will serve uoy
+                                With out all experience <br /> We will serve you
                             </h2>
                             <p>
                                 Lorem ipsum dolar sit amet, consectetur adipisicing elit.

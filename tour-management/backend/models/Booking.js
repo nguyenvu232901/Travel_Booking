@@ -16,16 +16,18 @@ const bookingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    phone:{
-        type: Number,
-        required:true,
-    },
     guestSize:{
         type: Number,
         required:true,
     },
+
+    phone:{
+      type: Number,
+      required:true,
+  },
     bookAt:{
-        type: Date,
+      type: Date,
+      required:true
     },
   },
   { timestamps: true }
