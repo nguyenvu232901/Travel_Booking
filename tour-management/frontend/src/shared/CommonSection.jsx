@@ -18,3 +18,4 @@ const CommonSection = ({title }) => {
 }
 
 export default CommonSection;
+

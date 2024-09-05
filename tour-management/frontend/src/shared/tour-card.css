@@ -1,5 +1,15 @@
 
 
+.tour__card {
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tour__card:hover {
+    transform: translateY(-10px);
+}
+
+
 .tour__img img{
     width: 100%;
     border-radius: 5px 5px 0 0;

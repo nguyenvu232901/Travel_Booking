@@ -7,6 +7,8 @@ import Register from "../pages/Register";
 import TourDetails from "../pages/TourDetails"
 import SearchresultList from "../pages/SearchresultList";
 import ThankYou from "../pages/ThankYou";
+import About from "../pages/About";
+import AccountSettings from "../components/Info-user/AccountSettings";
 
 const Routers = () => {
     return (
@@ -14,12 +16,14 @@ const Routers = () => {
             <Route path='/' element={<Navigate to='/home'/>} />
             <Route path='/home' element={<Home/>} />
             <Route path='/tours' element={<Tours/>} />
+            <Route path='/about' element={<About/>} />
             <Route path='/tours/:id' element={<TourDetails/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/register' element={<Register/>} />
             <Route path='/thank-you' element={<ThankYou/>} />
             <Route path='/tours/search' element={<SearchresultList/>} />
-
+            <Route path="/account-settings" element={<AccountSettings />} />
+            {/* <Route path="/account-settings" element={< />} /> */}
 
 
         </Routes>

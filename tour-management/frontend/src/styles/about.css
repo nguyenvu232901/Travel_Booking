@@ -1,0 +1,167 @@
+.banner__img{
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('../assets/images/banner.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.banner__img h1{
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.services__subtitle{
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: #ee6e6e;
+    font-family: var(--subtitle-font-name);
+    text-align: center;
+}
+
+.font__style p{
+    color: var(--text-color);
+    text-align: center;
+    padding: 0 16.67%;
+}
+
+.services__item {
+    padding: 1rem;
+    border-bottom: 1px solid #faa83586;
+    border-right: 1px solid #faa83586;
+    border-radius: 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.services__item h5:hover {
+    color: #1cbab5;
+}
+
+.services__item p{
+    color: var(--text-color);
+}
+
+.services__offer {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.services__offer div {
+    display: flex;
+    align-items: center;
+}
+
+.services__offer i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #1cbab5;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1;
+    margin-right: 0.5rem;
+}
+
+.services__offer p {
+    display: inline-block;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.vertical-divider::before {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 220px;
+    background-color: #1cbab5;
+    margin: 0 auto; /* Căn giữa theo chiều ngang */
+}
+
+.company__section {
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+    margin-bottom: -3rem;
+}
+
+
+.company__description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #666;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.company__values {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.value__item {
+    text-align: center;
+    max-width: 200px;
+}
+
+.value__icon {
+    font-size: 3rem;
+    color: #1cbab5;
+    margin-bottom: 1rem;
+}
+
+.value__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.value__description {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ============reponsive============ */
+
+@media only screen and (max-width: 576px){
+    .services__subtitle{
+        font-size: 2.5rem;
+    }
+
+    .banner__img h1{
+        font-size: 2rem;
+    }
+
+    p{
+        font-size: 0.9rem;
+    }
+
+    .value__title{
+        font-size: 1rem;
+    }
+
+    .value__icon {
+        font-size: 2rem;
+        color: #1cbab5;
+        margin-bottom: 0.8rem;
+    }
+
+    .services__item h5{
+        font-size: 1rem;
+    }
+}

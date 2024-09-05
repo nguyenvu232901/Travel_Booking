@@ -31,6 +31,7 @@
     color: var(--secondary-color);
 }
 
+
 .nav__btns {
     display: flex;
     gap: 1rem;
@@ -57,6 +58,7 @@
     box-shadow: 3px 3px 8px -3px #ddd;
     z-index: 999;
 }
+
 
 /* =======reponsive============ */
 
@@ -98,6 +100,30 @@
     }
 }
 
+/* Hover effect for nav links */
+.nav__item a {
+    text-decoration: none;
+    color: var(--heading-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav__item a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-5px); /* Move up by 5px */
+}
+
+/* Hover effect for buttons */
+.nav__btns .btn {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.nav__btns .btn:hover {
+    transform: translateY(-5px); /* Move up by 5px */
+}
+
+
 
 @media only screen and (max-width:768px){
     .logo img{
@@ -106,5 +132,11 @@
 
     .menu{
         width: calc(100% - 50%);
+    }
+}
+
+@media only screen and (max-width:1200px){
+    .navigation{
+        margin-right: 80px;
     }
 }
