@@ -9,6 +9,7 @@ import SearchresultList from "../pages/SearchresultList";
 import ThankYou from "../pages/ThankYou";
 import About from "../pages/About";
 import AccountSettings from "../components/Info-user/AccountSettings";
+import RegisteredTours from "../pages/RegisteredTours";
 
 const Routers = () => {
     return (
@@ -23,6 +24,7 @@ const Routers = () => {
             <Route path='/thank-you' element={<ThankYou/>} />
             <Route path='/tours/search' element={<SearchresultList/>} />
             <Route path="/account-settings" element={<AccountSettings />} />
+            <Route path="/registered-tours" element={<RegisteredTours />} />
             {/* <Route path="/account-settings" element={< />} /> */}
 
 

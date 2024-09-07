@@ -9,70 +9,72 @@ import { BASE_URL } from '../../utils/config';
 
 const Booking = ({tour, avgRating}) => {
 
-    const {price, reviews, title} = tour;
-
+    const {price, reviews, title, photo, desc, tourId} = tour;
     const navigate = useNavigate();
-
     const {user} = useContext(AuthContext);
-
 
     const [booking, setBooking] = useState({
         userId: user && user._id,
         userEmail: user && user.email,
+        tourId: tourId,
         tourName: title,
         fullName: '',
         phone: '',
         guestSize: 1,
-        bookAt: ''
+        bookAt: '',
+        photo: photo,
+        desc: desc
     });
 
-    const handleChange = e=>{
-        setBooking(prev=>({...prev, [e.target.id]:e.target.value}))
+    const handleChange = e => {
+        setBooking(prev => ({...prev, [e.target.id]: e.target.value}));
     };
 
-    const serviceFee=10;
-    const totalAmout = Number(price) * Number(booking.guestSize) + Number(serviceFee);
+    const serviceFee = 10;
+    const totalAmount = Number(price) * Number(booking.guestSize) + serviceFee;
 
-    //send data to the server
-    const handleClick = async e=>{
+    const handleClick = async e => {
         e.preventDefault();
-        console.log(booking);
+
+        const bookingData = {
+            ...booking,
+            totalAmount // Sử dụng đúng tên biến là totalAmount
+        };
 
         try {
-            if(!user || user===undefined || user===null){
-                return alert("Please sign in")
+            if (!user) {
+                return alert("Please sign in");
             }
+
             const res = await fetch(`${BASE_URL}/booking`, {
-                method:"post",
-                headers:{
-                    "content-type":"application/json",
+                method: "post",
+                headers: {
+                    "content-type": "application/json",
                 },
-                credentials:"include",
-                body:JSON.stringify(booking)
-            })
+                credentials: "include",
+                body: JSON.stringify(bookingData) // Gửi dữ liệu booking kèm totalAmount
+            });
+
             const result = await res.json();
-            if(!res.ok){
+            if (!res.ok) {
                 return alert(result.message);
             }
-            navigate("/thank-you")
+            navigate("/thank-you");
         } catch (err) {
-            alert(err.message)
+            alert(err.message);
         }
-        navigate("/thank-you");
-    }
+    };
 
     return (
         <div className="booking">
             <div className="booking__top d-flex align-items-center justify-content-between">
                 <h3> ${price} <span>/per person</span></h3>
                 <span className="tour__rating d-flex align-items-center">
-                    <i class="ri-star-fill"></i>
+                    <i className="ri-star-fill"></i>
                     {avgRating === 0 ? null : avgRating} ({reviews?.length})
-                 
                 </span>
             </div>
 
-            {/* ==============Booking form =================== */}
             <div className="booking__form">
                 <h5>Information</h5>
                 <Form className="booking__info-form" onSubmit={handleClick}>
@@ -85,21 +87,16 @@ const Booking = ({tour, avgRating}) => {
                     </FormGroup>
 
                     <FormGroup className="d-flex align-items-center gap-3">
-                        <input type="date" placeholder="" id="bookAt" required onChange={handleChange} />
+                        <input type="date" id="bookAt" required onChange={handleChange} />
                         <input type="number" placeholder="Guest" id="guestSize" required onChange={handleChange} />
-
                     </FormGroup>
                 </Form>
             </div>
-            {/* ================ Booking form end ================= */}
 
-
-
-            {/* ================ Booking bottom  ================= */}
             <div className="booking__bottom">
                 <ListGroup>
                     <ListGroupItem className="border-0 px-0">
-                        <h5 className="d-flex align-items-center gap-1"> ${price} <i class="ri-close-line" ></i> 1 person</h5>
+                        <h5 className="d-flex align-items-center gap-1"> ${price} <i className="ri-close-line"></i> 1 person</h5>
                         <span> ${price} </span>
                     </ListGroupItem>
 
@@ -110,16 +107,14 @@ const Booking = ({tour, avgRating}) => {
 
                     <ListGroupItem className="border-0 px-0">
                         <h5> Total </h5>
-                        <span> ${totalAmout} </span>
+                        <span> ${totalAmount} </span>
                     </ListGroupItem>
                 </ListGroup>
 
-                <Button className="btn primary__btn w-100 mt-4" onClick={handleClick }>Book Now</Button>
+                <Button className="btn primary__btn w-100 mt-4" onClick={handleClick}>Book Now</Button>
             </div>
-            {/* ================ Booking bottom end ================= */}
-
         </div>
     );
-}
+};
 
 export default Booking;

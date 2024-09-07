@@ -1,0 +1,109 @@
+/* registeredTours.css */
+
+/* Default styles for larger screens */
+.booking__item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+}
+
+.booking__img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.booking__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.booking__details h5 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.booking__details p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.btn.primary__btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn.primary__btn:hover {
+    background-color: #0056b3;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+/* Media Queries */
+
+/* For tablets and small screens */
+@media (max-width: 768px) {
+    .booking__item {
+        padding: 0.5rem;
+    }
+
+    .booking__details h5 {
+        font-size: 1.125rem;
+    }
+
+    .booking__details p {
+        font-size: 0.875rem;
+    }
+
+    .btn.primary__btn {
+        padding: 0.5rem;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 576px) {
+    .booking__item {
+        padding: 0.5rem;
+        flex-direction: column;
+    }
+
+    .booking__img {
+        max-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .booking__details {
+        gap: 0.25rem;
+    }
+
+    .booking__details h5 {
+        font-size: 1rem;
+    }
+
+    .booking__details p {
+        font-size: 0.75rem;
+    }
+
+    .btn.primary__btn {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+}
