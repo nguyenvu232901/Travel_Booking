@@ -1,12 +1,32 @@
 {
+  "name": "travel-booking-app",
+  "version": "1.0.0",
+  "description": "A full-stack travel booking application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "docker-compose up -d",
+    "dev:stop": "docker-compose down",
+    "dev:backend": "cd tour-management/backend && npm run start-dev",
+    "dev:frontend": "cd tour-management/frontend && npm start",
+    "build:backend": "cd tour-management/backend && npm install",
+    "build:frontend": "cd tour-management/frontend && npm install && npm run build",
+    "start:backend": "cd tour-management/backend && npm start",
+    "install:all": "npm install && cd tour-management/backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": ["travel", "booking", "react", "nodejs", "mongodb"],
+  "author": "Your Name",
+  "license": "MIT",
   "dependencies": {
     "axios": "^1.7.7",
     "mongoose": "^8.5.4",
-    "node": "^22.7.0",
     "remixicon": "^4.3.0"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "react-refresh": "^0.14.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }

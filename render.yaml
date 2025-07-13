@@ -1,0 +1,27 @@
+services:
+  # Backend API Service
+  - type: web
+    name: travel-booking-backend
+    env: node
+    buildCommand: cd tour-management/backend && npm install
+    startCommand: cd tour-management/backend && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8000
+      - key: MONGO_URI
+        sync: false  # Set this manually in Render dashboard
+      - key: JWT_SECRET_KEY
+        sync: false  # Set this manually in Render dashboard
+
+  # Frontend Static Site
+  - type: web
+    name: travel-booking-frontend
+    env: static
+    buildCommand: cd tour-management/frontend && npm install && npm run build
+    staticPublishPath: tour-management/frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://travel-booking-backend.onrender.com/api/v1
