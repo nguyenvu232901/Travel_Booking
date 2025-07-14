@@ -14,8 +14,14 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 const corsOptions = {
-  origin: true,
+  origin: [
+    "http://localhost:3000",
+    "https://travel-booking-frontend-gsdr.onrender.com",
+    "https://travel-booking-backend-553i.onrender.com",
+  ],
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 //for testing and health check
