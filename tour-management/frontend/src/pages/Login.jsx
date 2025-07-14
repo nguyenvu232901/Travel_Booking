@@ -42,9 +42,17 @@ const Login = () => {
             });
 
             const result = await res.json();
-            if(!res.ok) alert(result.message);
+            if(!res.ok) {
+                alert(result.message);
+                return;
+            }
+
             console.log(result.data);
 
+            // Save token to localStorage
+            if (result.token) {
+                localStorage.setItem('token', result.token);
+            }
 
             dispatch({type:"LOGIN_SUCCESS", payload:result.data})
             navigate("/")

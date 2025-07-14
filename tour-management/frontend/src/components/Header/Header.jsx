@@ -19,6 +19,9 @@ const Header = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const logout = () => {
+        // Clear token from localStorage
+        localStorage.removeItem('token');
+        // Clear user from localStorage (handled by AuthContext)
         dispatch({ type: "LOGOUT" });
         navigate("/");
     };
