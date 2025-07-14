@@ -1,0 +1,53 @@
+services:
+  # Backend API Service
+  - type: web
+    name: travel-booking-backend
+    env: node
+    plan: free
+    buildCommand: cd tour-management/backend && npm install
+    startCommand: cd tour-management/backend && npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: MONGO_URI
+        fromDatabase:
+          name: travel-booking-db
+          property: connectionString
+      - key: JWT_SECRET_KEY
+        generateValue: true
+    autoDeploy: true
+
+  # Frontend Static Site
+  - type: static
+    name: travel-booking-frontend
+    env: static
+    plan: free
+    buildCommand: cd tour-management/frontend && npm install && npm run build
+    staticPublishPath: tour-management/frontend/build
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: travel-booking-backend
+          property: host
+
+databases:
+  - name: travel-booking-db
+    databaseName: tours_booking
+    user: travel_booking_user
+    plan: free
