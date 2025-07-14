@@ -1,6 +1,6 @@
-import User from "../models/User.js";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+import User from '../models/User.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 //user register
 export const register = async (req, res) => {
@@ -19,13 +19,13 @@ export const register = async (req, res) => {
     await newUser.save();
     res.status(200).json({
       success: true,
-      message: "Successfully created",
+      message: 'Successfully created',
     });
   } catch (err) {
     console.error(err);
     res.status(500).json({
       success: false,
-      message: "Failed to create. Try again",
+      message: 'Failed to create. Try again',
     });
   }
 };
@@ -41,7 +41,7 @@ export const login = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json({ success: false, message: "User not found" });
+        .json({ success: false, message: 'User not found' });
     }
 
     //if user is exist then check the password or compare the password
@@ -54,7 +54,7 @@ export const login = async (req, res) => {
     if (!checkCorrectPassword) {
       return res
         .status(401)
-        .json({ success: false, message: "Incorrect email or password" });
+        .json({ success: false, message: 'Incorrect email or password' });
     }
 
     const { password, role, ...rest } = user._doc;
@@ -66,15 +66,15 @@ export const login = async (req, res) => {
         role: user.role,
       },
       process.env.JWT_SECRET_KEY,
-      { expiresIn: "15d" }
+      { expiresIn: '15d' }
     );
 
     //set token in the browser cookies and send the reponse to the client
     res
-      .cookie("accessToken", token, {
+      .cookie('accessToken', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // Only secure in production
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // Allow cross-site in production
+        secure: process.env.NODE_ENV === 'production', // Only secure in production
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // Allow cross-site in production
         maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days in milliseconds
       })
       .status(200)
@@ -86,6 +86,6 @@ export const login = async (req, res) => {
       });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, message: "Failed to login" });
+    res.status(500).json({ success: false, message: 'Failed to login' });
   }
 };

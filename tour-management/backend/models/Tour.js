@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const tourSchema = new mongoose.Schema(
   {
@@ -39,7 +39,7 @@ const tourSchema = new mongoose.Schema(
     reviews: [
       {
         type: mongoose.Types.ObjectId,
-        ref: "Review",
+        ref: 'Review',
       },
     ],
 
@@ -51,4 +51,4 @@ const tourSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Tour", tourSchema);
+export default mongoose.model('Tour', tourSchema);

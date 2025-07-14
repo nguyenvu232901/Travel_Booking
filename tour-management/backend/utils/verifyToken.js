@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 
 const verifyToken = (req, res, next) => {
   // Try to get token from cookies first, then from Authorization header
@@ -6,7 +6,7 @@ const verifyToken = (req, res, next) => {
 
   if (!token) {
     const authHeader = req.headers.authorization;
-    if (authHeader && authHeader.startsWith("Bearer ")) {
+    if (authHeader && authHeader.startsWith('Bearer ')) {
       token = authHeader.substring(7); // Remove 'Bearer ' prefix
     }
   }
@@ -23,7 +23,7 @@ const verifyToken = (req, res, next) => {
     if (err) {
       return res.status(401).json({
         success: false,
-        message: "token is invalid",
+        message: 'token is invalid',
       });
     }
 
@@ -34,7 +34,7 @@ const verifyToken = (req, res, next) => {
 
 export const verifyUser = (req, res, next) => {
   verifyToken(req, res, next, () => {
-    if (req.user.id === req.params.id || req.user.role === "admin") {
+    if (req.user.id === req.params.id || req.user.role === 'admin') {
       next();
     } else {
       return res
@@ -46,7 +46,7 @@ export const verifyUser = (req, res, next) => {
 
 export const verifyAdmin = (req, res, next) => {
   verifyToken(req, res, next, () => {
-    if (req.user.role === "admin") {
+    if (req.user.role === 'admin') {
       next();
     } else {
       return res

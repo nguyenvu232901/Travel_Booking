@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "start-dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "format": "prettier --write **/*.{js,json,md}",
+    "format:check": "prettier --check **/*.{js,json,md}"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +28,8 @@
     "mongodb": "^6.8.0",
     "mongoose": "^8.6.1",
     "mongose": "^0.0.2-security"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0"
   }
 }
